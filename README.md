@@ -1,6 +1,6 @@
 <h1 align="center">Data Structures & Algorithms</h1>
 
-![Alt Text Here]()
+![A Common-Sense Guide to Data Structures & Algorithms](https://github.com/NickODxyz/Data-Structures-Algorithms/blob/main/Data%20Structures%20%26%20Algorithms.PNG)
 
 <br>
 
