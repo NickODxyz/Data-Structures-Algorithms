@@ -20,18 +20,6 @@ Data Structures:
 
 <br>
 
-## Built with
-
-NA
-
-<br>
-
-## Site links
-
-Hosted [Live Site]()
-
-<br>
-
 ## Useful resources
 
 [MDN - Array's](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
