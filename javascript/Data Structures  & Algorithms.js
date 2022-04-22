@@ -14,6 +14,7 @@
 
 // ______________________________
 // @Arrays
+// Link - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 // ------------------------------
 
 // Arrays are random items (data elements) in a list format. They can be either sorted or unsorted and contain duplicates. Each data element in an array is indexed, each index holds the data element (value).
@@ -37,7 +38,7 @@
 // Reading:
 // This is simply asking the computer what value is at index[x]. Because a computer doesn't have to do anything to read from a given index the computer can do this look up in 1 step.
 
-// Each memory block in RAM or on a disk is addressed and when an array is created the computer makes note of where the array begins. With this knowledge when it is asked what value is at array[3], it can easily jump straight to that index giving you the answer.
+// Each memory block in RAM or on a disk is addressed and when an array is created the computer makes note of where the array begins. With this knowledge when it is asked what value is at arrayName[3], it can easily jump straight to that index giving you the answer.
 
 // Searching:
 // This can be seen as the inverse of reading. Here we're asking the computer if a particular value (data element) is within an array.
@@ -130,6 +131,7 @@ const arrayDeletion = (n) => {
 
 // ______________________________
 // @Sets
+// Link - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 // ------------------------------
 
 // Sets allow you to store unique values of any type. They're collections of values just as array's are but only allow you to store unique values.
@@ -139,16 +141,160 @@ const arrayDeletion = (n) => {
 
 // Sets are just like the phone book, for every phone number in the phone book can only have 1 person or 1 home associated with it.
 
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
+
 // Commonly Used Operations
 // ------------------------------
 
 // Reading:
+// This is the exact same process and time complexity as reading from an array.
 
 // Searching:
+// This is the exact same process and time complexity as searching from an array.
 
 // Insertion:
+// This is where sets differ from arrays. When inserting into a set, because sets don't allow duplicate data elements. The entire set must first be searched 1 data element at a time, checking the new data element isn't already within the array. Only once this full search has been made will the insertion take place, if the data element isn't already present of course.
+
+// Because of this full search the time complexity for set insertion at best would be 0(n+1) - That is a full search of n elements and then a final insertion step. If however the new data element is to be inserted at the beginning of the array, the time complexity would change to 0(2n+1) - The full search first then the shift and re-indexing of all elements plus the 1 step of insertion.
 
 // Deletion:
+// This is the exact same process and time complexity as deletion from an array.
+
+// Commonly Used Methods
+// ------------------------------
+
+// setName.add(x)
+//      Adding to a set
+// Will add to the end of the set
+
+// setName.has(x)
+//      Reading from an value
+// Returns the true / false
+// Apparently Set objects are mostly implemented like hash tables. Given this, the .has method for the most part has a time complexity of 0(1)
+
+// setName.delete()
+//    Deletes specified element
+
+// for (let value of setName)
+//    This will iterate through a set
+
+// Examples
+// ------------------------------
+
+const setShoppingList = new Set([
+  "apples",
+  "pears",
+  "oranges",
+  "blackberries",
+  "tomatoe",
+]);
+
+// Adding to a Set:
+const setAdd = () => {
+  console.log(setShoppingList.add("blueberries"));
+};
+// setAdd();
+
+// Reading from an Set:
+const setRead = (n) => {
+  console.log(setShoppingList.has(n));
+};
+// setRead("oranges");
+
+// Deleting from a set:
+const setDelete = () => {
+  console.log(setShoppingList.delete("blueberries"));
+  console.log(setShoppingList);
+};
+// setDelete();
+
+// Iterating through a set:
+const setIteration = () => {
+  for (let item of setShoppingList) {
+    console.log(item);
+  }
+};
+// setIteration();
+
+// ______________________________
+// @Ordered Array
+// Link - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+// ------------------------------
+
+// Analogy
+// ------------------------------
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Commonly Used Operations
+// ------------------------------
+
+// Commonly Used Methods
+// ------------------------------
+
+// Examples
+// ------------------------------
+
+// ______________________________
+// @
+// Link -
+// ------------------------------
+
+// Analogy
+// ------------------------------
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Commonly Used Operations
+// ------------------------------
+
+// Commonly Used Methods
+// ------------------------------
+
+// Examples
+// ------------------------------
+
+// ______________________________
+// @
+// Link -
+// ------------------------------
+
+// Analogy
+// ------------------------------
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Commonly Used Operations
+// ------------------------------
+
+// Commonly Used Methods
+// ------------------------------
+
+// Examples
+// ------------------------------
+
+// ______________________________
+// @
+// Link -
+// ------------------------------
+
+// Analogy
+// ------------------------------
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Commonly Used Operations
+// ------------------------------
 
 // Commonly Used Methods
 // ------------------------------
