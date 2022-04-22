@@ -227,14 +227,88 @@ const setIteration = () => {
 // Link - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 // ------------------------------
 
+// Ordered arrays are simply that. Strings are ordered alphabetically and intergers are ordered numerically based on the left most character (however not in sequence) - [1, 10, 100, 2, 22, 30, 4].
+
+// Analogy
+// ------------------------------
+
+// Think of the order of a race, from first to last.
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
+
+// Commonly Used Operations
+// ------------------------------
+
+// Reading:
+// This is the exact same process and time complexity as reading from an array.
+
+// Searching:
+// The main difference between searching a standard array and an ordered array, is that we can stop searching an ordered array part way through our search.
+
+// If for example our array is arrOrdered[1,2,5,6,7] and we would like to know if it contains a [3]. As soon as our search gets to index 2 our search can terminate returning false, because we know that a 3 can't come after a 5 in an ordered array.
+
+// Insertion:
+// As the insertion will need to go into a specific part of the array, first a search will need to be performed. Once the insertion point is found then a shift of the remaining data elements is needed and only then cant he insertion take place.
+
+// No matter where within the ordered array the insertion needs to be there will always be an equal amount of searching + shifting, basically 0(n).
+
+// Deletion
+
+// Commonly Used Methods
+// ------------------------------
+
+// Examples
+// ------------------------------
+
+const unorderedArray = [2, 3, 1, 6, 8, 7, 9];
+console.log(unorderedArray);
+const orderedArray = unorderedArray.sort();
+console.log(orderedArray);
+
+// Ordered Array Search
+const orderedArraySearch = (arr, key) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === key) {
+      return console.log(`${key} is in the array`);
+    }
+  }
+  return console.log(`${key} is not in the array`);
+};
+
+orderedArraySearch(orderedArray, 5);
+
+// ______________________________
+// @
+// Link -
+// ------------------------------
+
 // Analogy
 // ------------------------------
 
 // Big 0 - Time Complexity
 // ------------------------------
 
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
+
 // Commonly Used Operations
 // ------------------------------
+
+// Reading:
+
+// Searching:
+
+// Insertion:
+
+// Deletion
 
 // Commonly Used Methods
 // ------------------------------
@@ -253,8 +327,21 @@ const setIteration = () => {
 // Big 0 - Time Complexity
 // ------------------------------
 
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
+
 // Commonly Used Operations
 // ------------------------------
+
+// Reading:
+
+// Searching:
+
+// Insertion:
+
+// Deletion
 
 // Commonly Used Methods
 // ------------------------------
@@ -273,28 +360,21 @@ const setIteration = () => {
 // Big 0 - Time Complexity
 // ------------------------------
 
-// Commonly Used Operations
-// ------------------------------
-
-// Commonly Used Methods
-// ------------------------------
-
-// Examples
-// ------------------------------
-
-// ______________________________
-// @
-// Link -
-// ------------------------------
-
-// Analogy
-// ------------------------------
-
-// Big 0 - Time Complexity
-// ------------------------------
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
 
 // Commonly Used Operations
 // ------------------------------
+
+// Reading:
+
+// Searching:
+
+// Insertion:
+
+// Deletion
 
 // Commonly Used Methods
 // ------------------------------
