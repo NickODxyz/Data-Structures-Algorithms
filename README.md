@@ -16,7 +16,11 @@ I put them here only for my future reference and leaning.
 
 Data Structures:
 - Arrays
+	- Ordered Arrays
 - Sets
+
+Algorithms:
+- Binary Search
 
 <br>
 
