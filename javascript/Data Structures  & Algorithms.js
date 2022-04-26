@@ -4,13 +4,16 @@
 
 // ______________________________
 // @Big 0
+// Link - https://www.bigocheatsheet.com/
 // ------------------------------
 
-// 0(1)     -- Constant Time
-// 0(n)     -- Linear Time
-// 0(logn)
-// 0(n2)
-// 0(2n)
+// 0(1)       -- Constant Time
+// 0(logn)    -- Logarithmic Time
+// 0(n)       -- Linear Time
+// 0(n log n) --
+// 0(n2)      --
+// 0(2n)      --
+// 0(n!)      --
 
 // ______________________________
 // @Arrays
@@ -259,6 +262,7 @@ const setIteration = () => {
 // No matter where within the ordered array the insertion needs to be there will always be an equal amount of searching + shifting, basically 0(n).
 
 // Deletion
+// This is the exact same process and time complexity as deletion from an array.
 
 // Commonly Used Methods
 // ------------------------------
@@ -267,9 +271,9 @@ const setIteration = () => {
 // ------------------------------
 
 const unorderedArray = [2, 3, 1, 6, 8, 7, 9];
-console.log(unorderedArray);
+// console.log(unorderedArray);
 const orderedArray = unorderedArray.sort();
-console.log(orderedArray);
+// console.log(orderedArray);
 
 // Ordered Array Search
 const orderedArraySearch = (arr, key) => {
@@ -281,7 +285,175 @@ const orderedArraySearch = (arr, key) => {
   return console.log(`${key} is not in the array`);
 };
 
-orderedArraySearch(orderedArray, 5);
+// orderedArraySearch(orderedArray, 5);
+
+// ______________________________
+// @Binary Search - Ordered Array
+// Link - https://www.geeksforgeeks.org/binary-search-in-javascript/
+// ------------------------------
+
+// A binary search can only be performed on an ordered list, based on the nature of how it searches a list of data elements.
+
+// A binary search simply eliminates half of the data elements at every guess / search. If we ask the computer to check if 80 is within an array containing 1-100, it first checks the mid point 50. It then learns 80 is higher so will now check the next mid point 75, and some on checking mid points of the remaining numbers until it either finds a match or see's the number is not within the array.
+
+// The power of the binary search is more evident in larger arrays. Everytime the array doubles in size the amount of steps taken to perform the search only increses by one step.
+
+// Worst case for an array of 100, 200, 400:
+// Linear = 100, 200, 400
+// Binary = 7, 8, 9
+
+// Analogy
+// ------------------------------
+
+// Like a guessing game always choosing the mid point for your guess.
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Reading      - 0(1)        -- Constant Time
+// Searching    - 0(logN)     -- Logarithmic Time
+// Insertion    - 0(logN+1)   -- Logarithmic Time
+// Deletion     - 0(logN+1)   -- Logarithmic Time
+
+// Commonly Used Operations
+// ------------------------------
+
+// Reading:
+// This is the exact same process and time complexity as reading from an array.
+
+// Searching:
+// As each search half's the number of elements from the array at each step, binary search is extremly fast compared to linear searching.
+
+// Insertion:
+// As the binary search would be used for the insertion of a new element, again this vastly increases the speed of insertion.
+
+// Deletion:
+// As the binary search would be used for the deletion of a new element, again this vastly increases the speed of deletion.
+
+// Commonly Used Methods
+// ------------------------------
+
+// This is a searching algorithm / technique of an ordered array. So it would use methods inline with standard arrays.
+
+// Examples
+// ------------------------------
+
+const binarySearchArray = [1, 2, 3, 4, 5, 7, 8, 9];
+
+const binarySearch = (arr, n) => {
+  // We need to define the hi & low boundary of our array
+  let start = 0;
+  let end = arr.length - 1;
+
+  // Wile loop defines start never going higher than end
+  while (start <= end) {
+    // Middle is our search
+    // This math splits our array & sets our midpoint to the left
+    let middle = Math.floor((start + end) / 2);
+
+    // This will exit our loop once middle = n
+    if (arr[middle] === n) {
+      return `Found at index: ${middle}`;
+      // This checks if middle is less than n
+    } else if (arr[middle] < n) {
+      // This resets start if n is higher than middle
+      // So removes all of the lower numbers from it's search
+      start = middle + 1;
+    } else {
+      // This resets end if n is lower than middle
+      // So removes all of the higher numbers from it's search
+      end = middle - 1;
+    }
+  }
+  return `Not in array`;
+};
+// console.log(binarySearch(binarySearchArray, 7));
+// console.log(binarySearch(binarySearchArray, 6));
+// console.log(binarySearch(binarySearchArray, 100));
+
+// Recursively version
+const recursiveBinarySearch = (arr, n, start, end) => {
+  if (start > end) return `Not in array`;
+
+  let middle = Math.floor((start + end) / 2);
+
+  if (arr[middle] === n) return `Found at index: ${middle}`;
+
+  if (arr[middle] < n) {
+    return recursiveBinarySearch(arr, n, middle + 1, end);
+  } else {
+    return recursiveBinarySearch(arr, n, start, middle - 1);
+  }
+};
+
+// console.log(
+//   recursiveBinarySearch(binarySearchArray, 7, 0, binarySearchArray.length - 1)
+// );
+// console.log(
+//   recursiveBinarySearch(binarySearchArray, 6, 0, binarySearchArray.length - 1)
+// );
+// console.log(
+//   recursiveBinarySearch(binarySearchArray, 100, 0, binarySearchArray.length - 1)
+// );
+
+// ______________________________
+// @Bubble Sort
+// Link -
+// ------------------------------
+
+// Bubble sort will look at two joining indexes and compare their values. If the left value is higher than the right then it will swap the two values. If the right is the higher value it will do nothing with the values. It then moves 1 index to the right and continues the comparisons, until the highest move value it found is all the way to the end of the array.
+
+// Bubble sorts are relatively inefficient, the only time they will perform well would be with nearly sorted arrays. But only when if they've the isSorted variable added to end the looping early should there be nothing sorted in one full pass.
+
+// Analogy
+// ------------------------------
+
+// The highest value in an array will bubble it's way to the top / end of an array. The bubble sort will keep looping the array bubbling the highest value to the end until all the data elements are in ascending order.
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// 0(n2) -- Quadtratic Time
+
+// Examples
+// ------------------------------
+
+const randomNearlyArray = [10, 1, 2, 3, 4];
+const randomArray = [33, 28, 50, 91, 12];
+
+function bubbleSort(arr) {
+  // This variable is to break out of our loops if we complete one full loop with no sorting. The reason being if we loop once and nothing needs sorting then by definition the array is fully sorted
+  let isSorted;
+  let outerCounter = 0;
+  let innerCounter = 0;
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    // At the start of every loop we set isSorted to true
+    isSorted = true;
+    outerCounter++;
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      innerCounter++;
+      // Visual output of our loops
+      console.log(arr, arr[j], arr[j + 1]);
+
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        // If we needed to sort, then we set isSorted to false, so we can start another loop
+        isSorted = false;
+      }
+    }
+    if (isSorted) break;
+  }
+  // Loop counts
+  console.log(`Outer loop ${outerCounter}`);
+  console.log(`Inner loop ${innerCounter}`);
+  // Final array
+  console.log(arr);
+}
+// bubbleSort(randomNearlyArray);
+// bubbleSort(randomArray);
 
 // ______________________________
 // @
@@ -381,3 +553,94 @@ orderedArraySearch(orderedArray, 5);
 
 // Examples
 // ------------------------------
+
+// ______________________________
+// @
+// Link -
+// ------------------------------
+
+// Analogy
+// ------------------------------
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
+
+// Commonly Used Operations
+// ------------------------------
+
+// Reading:
+
+// Searching:
+
+// Insertion:
+
+// Deletion
+
+// Commonly Used Methods
+// ------------------------------
+
+// Examples
+// ------------------------------
+
+// ______________________________
+// @
+// Link -
+// ------------------------------
+
+// Analogy
+// ------------------------------
+
+// Big 0 - Time Complexity
+// ------------------------------
+
+// Reading      - 0(1)    -- Constant Time
+// Searching    - 0(n)    -- Linear Time
+// Insertion    - 0(n+1)  -- Linear Time
+// Deletion     - 0(n)    -- Linear Time
+
+// Commonly Used Operations
+// ------------------------------
+
+// Reading:
+
+// Searching:
+
+// Insertion:
+
+// Deletion
+
+// Commonly Used Methods
+// ------------------------------
+
+// Examples
+// ------------------------------
+
+// Random Problems:
+
+const duplicateArray = [10, 5, 1, 2, 6, 5];
+
+const hasDuplicates = (arr) => {
+  let steps = 0;
+  let existingNumbers = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    steps++;
+    if (existingNumbers[arr[i]] === 1) {
+      console.log(steps);
+      console.log(existingNumbers);
+      return console.log(`Duplicate FOUND!`);
+    } else {
+      existingNumbers[arr[i]] = 1;
+    }
+  }
+  console.log(steps);
+  console.log(existingNumbers);
+  return console.log(`No duplicates found!`);
+};
+
+// hasDuplicates(duplicateArray);
