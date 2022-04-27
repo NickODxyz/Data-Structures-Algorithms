@@ -11,7 +11,7 @@
 // 0(logn)    -- Logarithmic Time
 // 0(n)       -- Linear Time
 // 0(n log n) --
-// 0(n2)      --
+// 0(n^2)      --
 // 0(2n)      --
 // 0(n!)      --
 
@@ -413,7 +413,7 @@ const recursiveBinarySearch = (arr, n, start, end) => {
 // Big 0 - Time Complexity
 // ------------------------------
 
-// 0(n2) -- Quadtratic Time
+// 0(n^2) -- Quadtratic Time
 
 // Examples
 // ------------------------------
@@ -456,42 +456,53 @@ function bubbleSort(arr) {
 // bubbleSort(randomArray);
 
 // ______________________________
-// @
-// Link -
+// @Selection Sort
+// Link - https://www.doabledanny.com/selection-sort-javascript
 // ------------------------------
+
+// Starting from the beginning to the end of an array, we insepct every element making note of the lowest data element in the array. Once we have done a full pass we then move the lowest element to the start of the array. We then continue looping through the array in the same fasion passing the lowest value to the right of the previous lowest until the array is fully sorted.
 
 // Analogy
 // ------------------------------
 
+// Loop and track, then shift to the left.
+
 // Big 0 - Time Complexity
 // ------------------------------
 
-// Reading      - 0(1)    -- Constant Time
-// Searching    - 0(n)    -- Linear Time
-// Insertion    - 0(n+1)  -- Linear Time
-// Deletion     - 0(n)    -- Linear Time
-
-// Commonly Used Operations
-// ------------------------------
-
-// Reading:
-
-// Searching:
-
-// Insertion:
-
-// Deletion
-
-// Commonly Used Methods
-// ------------------------------
+// 0(n^2) -- Quadtratic Time
+// 0(n^2 / 2) -- Twice as quick as Bubble sort
 
 // Examples
 // ------------------------------
+
+const selectionSortArray = [5, 1, 3, 9, 8, 4, 6, 7];
+
+const selectionSort = (arr) => {
+  for (let i = 0; i < arr.length - 1; i++) {
+    console.log(arr[i]);
+    let lowestNumberIndex = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[lowestNumberIndex]) {
+        lowestNumberIndex = j;
+      }
+    }
+    if (lowestNumberIndex != i) {
+      [arr[i], arr[lowestNumberIndex]] = [arr[lowestNumberIndex], arr[i]];
+    }
+  }
+  return console.log(arr);
+};
+// selectionSort(selectionSortArray);
 
 // ______________________________
-// @
+// @Insertion Sort
 // Link -
 // ------------------------------
+
+// Given an array that we loop through from index 1, we remove and store in a temp variable index 1's value. We then compare everything thing to the left of that index. If the compared element is larger, we move that element to the right. If there is nothing else to compare then we re-add the temp value back into the array.
+
+// We then continue our loop to the next index and continue as above, shifting higher values than the temp value to the right.
 
 // Analogy
 // ------------------------------
@@ -499,27 +510,23 @@ function bubbleSort(arr) {
 // Big 0 - Time Complexity
 // ------------------------------
 
-// Reading      - 0(1)    -- Constant Time
-// Searching    - 0(n)    -- Linear Time
-// Insertion    - 0(n+1)  -- Linear Time
-// Deletion     - 0(n)    -- Linear Time
-
-// Commonly Used Operations
-// ------------------------------
-
-// Reading:
-
-// Searching:
-
-// Insertion:
-
-// Deletion
-
-// Commonly Used Methods
-// ------------------------------
-
 // Examples
 // ------------------------------
+
+const insertionSortArray = [5, 1, 3, 9, 8, 4, 6, 7];
+
+const insertionSort = (arr) => {
+  for (let i = 1; i < arr.length; i++) {
+    let currentValue = arr[i];
+    let j;
+    for (j = i - 1; j >= 0 && arr[j] > currentValue; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentValue;
+  }
+  return console.log(arr);
+};
+insertionSort(insertionSortArray);
 
 // ______________________________
 // @
