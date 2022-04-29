@@ -11,7 +11,7 @@
 // 0(logn)    -- Logarithmic Time
 // 0(n)       -- Linear Time
 // 0(n log n) --
-// 0(n^2)      --
+// 0(n^2)     -- Quadratic Time
 // 0(2n)      --
 // 0(n!)      --
 
@@ -500,15 +500,17 @@ const selectionSort = (arr) => {
 // Link -
 // ------------------------------
 
-// Given an array that we loop through from index 1, we remove and store in a temp variable index 1's value. We then compare everything thing to the left of that index. If the compared element is larger, we move that element to the right. If there is nothing else to compare then we re-add the temp value back into the array.
+// Given an array that we loop through from index 1, we remove and store in a temp variable index 1's value. We then compare everything thing to the left of that index. If the compared element is larger, we move that element to the right into the empty slot. If there is nothing else to compare then we re-add the temp value back into the array at the remaining slot.
 
-// We then continue our loop to the next index and continue as above, shifting higher values than the temp value to the right.
+// We then continue our loop to the next index and continue as above, shifting higher values than the temp value to the right. And inserting the original value at the next empty slot if the compared value isn't any larger.
 
 // Analogy
 // ------------------------------
 
 // Big 0 - Time Complexity
 // ------------------------------
+
+// 0(n^2) -- Quadratic Time
 
 // Examples
 // ------------------------------
@@ -526,7 +528,7 @@ const insertionSort = (arr) => {
   }
   return console.log(arr);
 };
-insertionSort(insertionSortArray);
+// insertionSort(insertionSortArray);
 
 // ______________________________
 // @
